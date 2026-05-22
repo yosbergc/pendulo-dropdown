@@ -4,23 +4,34 @@ class PenduloObserver {
     private dropdownList = new Map<string, Set<Handler>>()
     
     subscribe(id: string, handler: Handler) {
-        this.dropdownList.set(id, new Set([handler]))
+        const hasMenu = this.dropdownList.has(id)
+        const hasHandler = this.dropdownList.get(id)?.has(handler)
+        if (hasMenu) {
+            if (!hasHandler) {
+                this.dropdownList.get(id)?.add(handler)
+            }
+        } else {
+            this.dropdownList.set(id, new Set([handler]))
+        }
 
-        return () => {
-            this.unsubscribe(id)
+        return (id: string, handler: Handler) => {
+            this.unsubscribe(id, handler)
         }
     }
 
-    unsubscribe(id: string) {
+    unsubscribe(id: string, handler: Handler) {
         if (this.dropdownList.has(id)){
-            this.dropdownList.delete(id)
+            this.dropdownList.get(id)?.delete(handler)
         }
     }
 
-    emit(id: string){
+    emit(id: string, boolean?: boolean){
         if (this.dropdownList.has(id)) {
-            const listenerList = this.dropdownList.get(id)!
-            listenerList.forEach(listener => listener(true))
+            const listenerList = this.dropdownList.get(id)
+            if (listenerList) {
+                listenerList.forEach(listener => listener(boolean))
+            }
+            
         }
     }
 }
