@@ -1,28 +1,26 @@
-type Listener = (text: string) => void
+type Handler <T = any> = (args?: T) => void;
 
 class PenduloObserver {
-    private dropdownList = new Map<string, Listener>()
+    private dropdownList = new Map<string, Set<Handler>>()
     
-    subscribe(id: string, listener: Listener) {
-        this.dropdownList.set(id, listener)
+    subscribe(id: string, handler: Handler) {
+        this.dropdownList.set(id, new Set([handler]))
 
         return () => {
-            this.off(id)
+            this.unsubscribe(id)
         }
     }
 
-    off(id: string) {
+    unsubscribe(id: string) {
         if (this.dropdownList.has(id)){
             this.dropdownList.delete(id)
         }
     }
 
-    emit(id: string, payload: string){
+    emit(id: string){
         if (this.dropdownList.has(id)) {
-            const listener = this.dropdownList.get(id)
-            if (listener) {
-                listener(payload)
-            }
+            const listenerList = this.dropdownList.get(id)!
+            listenerList.forEach(listener => listener(true))
         }
     }
 }
