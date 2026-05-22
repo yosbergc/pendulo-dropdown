@@ -1,14 +1,21 @@
 import { penduloObserverInstance } from './observer'
 import { RESERVED } from '../static/static'
+
 function useMenu({ id } : { id: string }) {
+    // Method to show a Pendulo, hide automatically all the ones who were render.
     const show = () => {
-        // Hide all menu currently showing
         penduloObserverInstance.emit(RESERVED.HIDE_ALL, false)
-        // Show menu
         penduloObserverInstance.emit(id, true)
     }
+    // Method to hide all the pendulos (menu).
+    const hideAll = () => {
+        penduloObserverInstance.emit(RESERVED.HIDE_ALL, false)
+    }
 
-    return { show }
+    return { 
+        show,
+        hideAll
+     }
 }
 
 export { useMenu }
