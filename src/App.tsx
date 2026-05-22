@@ -1,12 +1,7 @@
 import { Pendulo } from '../lib/components/Pendulo'
 import { useMenu } from '../lib/hooks/useMenu'
 function App() {
-  const { show } = useMenu({
-    id: 'menu'
-  })
-  const { show: showTwo } = useMenu({
-    id: 'menu2'
-  })
+  const { show } = useMenu()
   return (
     <>
       <Pendulo id='menu'>
@@ -19,8 +14,7 @@ function App() {
           <h2>Hello from children 2</h2>
         </section>
       </Pendulo>
-      <button onClick={show}>Probar boton de mostrar</button>
-      <button onClick={showTwo}>Probar boton de mostrar menu2</button>
+      <button onClick={() => show({ id: 'menu' })}>Probar boton de mostrar</button>
     </>
   )
 }

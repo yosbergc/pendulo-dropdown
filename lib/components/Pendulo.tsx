@@ -11,8 +11,6 @@ export function Pendulo({ id, children } : { id: string, children: React.ReactNo
                 padding: '16px 16px',
                 borderRadius: '4px'
             }}>
-                Hello world
-
                 {children}
             </section>
         )
