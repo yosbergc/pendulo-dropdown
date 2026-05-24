@@ -24,7 +24,7 @@ class PenduloObserver {
             this.dropdownList.get(id)?.delete(handler)
         }
     }
-
+    // Method to render a Pendulo (dropdown), it needs the ID and a boolean to know if it should be shown or hide.
     emit(id: string, boolean: boolean){
         if (this.dropdownList.has(id)) {
             const listenerList = this.dropdownList.get(id)
@@ -36,4 +36,5 @@ class PenduloObserver {
     }
 }
 
+// We create and export an instance of the observer class so we have a singleton that can be access from anywhere in the app.
 export const penduloObserverInstance = new PenduloObserver()

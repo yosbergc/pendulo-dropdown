@@ -3,7 +3,7 @@ import { penduloObserverInstance } from './observer'
 import { RESERVED } from "../static/static";
 
 export function usePendulo(id: string) {
-    const [visible, setVisible] = useState(false)
+    const [visible, setVisible] = useState(true)
     
     useEffect(() => {
         penduloObserverInstance.subscribe(RESERVED.HIDE_ALL, setVisible)

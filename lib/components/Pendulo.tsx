@@ -6,10 +6,12 @@ export function Pendulo({ id, children } : { id: string, children: React.ReactNo
     if (visible) {
         return (
             <section style={{
+                position: 'fixed',
                 background: 'white',
                 boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
-                padding: '16px 16px',
-                borderRadius: '4px'
+                padding: '8px 16px',
+                borderRadius: '12px'
+
             }}>
                 {children}
             </section>
