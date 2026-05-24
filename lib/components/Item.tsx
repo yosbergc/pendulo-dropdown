@@ -1,12 +1,9 @@
-export function Item({ text } : { text: string }) {
+import '../index.css'
+export function Item({ text, Icon } : { text: string, Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>> }) {
     return (
-        <section>
-            <p style={{
-                fontFamily: 'sans-serif',
-                color: 'gray',
-                fontSize: '0.9rem',
-                minWidth: '200px',
-            }}>{text}</p>
+        <section className="pendulo-item--component">
+            { Icon && <Icon width={14} height={14}/> }
+            <p>{text}</p>
         </section>
     )
 }

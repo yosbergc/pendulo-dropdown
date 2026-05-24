@@ -8,10 +8,10 @@ export function Pendulo({ id, children } : { id: string, children: React.ReactNo
             <section style={{
                 position: 'fixed',
                 background: 'white',
-                boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
-                padding: '8px 16px',
-                borderRadius: '12px'
-
+                boxShadow: '0px 0px 4px #f3f4f6',
+                padding: '16px 8px',
+                borderRadius: '6px',
+                border: '1px solid #f3f4f6'
             }}>
                 {children}
             </section>
