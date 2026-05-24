@@ -9,7 +9,7 @@ export function Pendulo({ id, children } : { id: string, children: React.ReactNo
                 position: 'fixed',
                 background: 'white',
                 boxShadow: '0px 0px 4px #f3f4f6',
-                padding: '16px 8px',
+                padding: '8px 8px',
                 borderRadius: '6px',
                 border: '1px solid #f3f4f6'
             }}>
