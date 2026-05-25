@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     padding: 0px 8px;
+    cursor: pointer;
 }
 .penduloItemComponent p {
     font-family: sans-serif;
@@ -13,10 +14,6 @@
     padding: 8px;
     margin: 0px;
 }
-.penduloItemComponent p:hover {
-    cursor: pointer;
-}
-
 .penduloItemComponent:hover {
     background-color: #e7f2ff;
     border-color: #bfdbfe;
