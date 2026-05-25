@@ -1,4 +1,12 @@
-type Handler <T = boolean> = (args: T) => void;
+export interface HandlerInfo {
+    state: boolean
+    position?: {
+        clientX: number
+        clientY: number
+    }
+}
+
+type Handler <T = HandlerInfo> = (args: T) => void;
 
 class PenduloObserver {
     private dropdownList = new Map<string, Set<Handler>>()
@@ -25,11 +33,14 @@ class PenduloObserver {
         }
     }
     // Method to render a Pendulo (dropdown), it needs the ID and a boolean to know if it should be shown or hide.
-    emit(id: string, boolean: boolean){
+    emit(id: string, payload: HandlerInfo){
         if (this.dropdownList.has(id)) {
             const listenerList = this.dropdownList.get(id)
             if (listenerList) {
-                listenerList.forEach(listener => listener(boolean))
+                listenerList.forEach(listener => listener({
+                    state: payload.state,
+                    position: payload.position
+                }))
             }
             
         }
