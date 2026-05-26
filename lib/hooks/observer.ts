@@ -1,6 +1,6 @@
 export interface HandlerInfo {
     state: boolean
-    position?: {
+    position: {
         clientX: number
         clientY: number
     }
