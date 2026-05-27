@@ -5,6 +5,11 @@ function useMenu() {
     // Method to show a Pendulo, hide automatically all the ones who were render.
     const show = ({ id, event } : { id: string, event: React.MouseEvent }) => {
         event.stopPropagation()
+
+        if (event.type === 'contextmenu') {
+            event.preventDefault()
+        }
+        
         penduloObserverInstance.emit(RESERVED.HIDE_ALL, { state: true, position: { clientX: 0, clientY: 0 } })
         penduloObserverInstance.emit(id, { 
             state: true,
