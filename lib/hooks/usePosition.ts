@@ -10,7 +10,7 @@ export function usePosition({ sectionRef, state } : { sectionRef: React.RefObjec
         width: 0,
         height: 0
     })
-
+    
     useLayoutEffect(() => {
         if (sectionRef.current) {
             const elementWidth = sectionRef.current.offsetWidth

@@ -15,7 +15,7 @@ function App() {
         <Separator />
         <Item text="Log Out" Icon={LogOut}/>
       </Pendulo>
-      <section style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', height: '100vh' }}>
+      <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <button onClick={(event: React.MouseEvent) => show({ id: 'menu', event })}>Probar boton de mostrar</button>
         <button onClick={hideAll}>Eliminar menu</button>
       </section>

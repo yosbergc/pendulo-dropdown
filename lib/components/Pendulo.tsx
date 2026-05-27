@@ -1,12 +1,15 @@
 import { usePendulo } from "../hooks/usePendulo";
 import { usePosition } from "../hooks/usePosition";
-import { useRef} from "react";
+import { useToggleMenu } from "../hooks/useToggleMenu";
+import { useRef } from "react";
 
 export function Pendulo({ id, children } : { id: string, children: React.ReactNode }) {
     const { state } = usePendulo(id)
     const sectionRef = useRef<HTMLDivElement | null>(null)
     const { offset } = usePosition({ sectionRef, state })
 
+    useToggleMenu({ state });
+    
     return (
         <section style={{
             position: 'fixed',
