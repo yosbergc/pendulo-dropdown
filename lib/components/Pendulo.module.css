@@ -1,0 +1,17 @@
+.penduloWrapper {
+    position: fixed;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0px 0px 4px #f3f4f6;
+    background: white;
+    border: 1px solid #f3f4f6;
+}
+
+.penduloWrapperDark {
+    position: fixed;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0px 0px 4px #f3f4f6;
+    background: #27272a;
+    border: 1px solid #09090b;
+}

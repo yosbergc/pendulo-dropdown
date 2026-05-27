@@ -1,31 +1,31 @@
+import React, { cloneElement, Children, useRef } from "react";
 import { usePendulo } from "../hooks/usePendulo";
 import { usePosition } from "../hooks/usePosition";
 import { useToggleMenu } from "../hooks/useToggleMenu";
-import React, { cloneElement, Children } from "react";
-import { useRef } from "react";
+import penduloStyle from './Pendulo.module.css'
 
 interface ChildProps {
     darkMode?: boolean;
     [key: string]: unknown;
 }
-export function Pendulo({ id, children, darkMode = false } : { id: string, children: React.ReactNode, darkMode?: boolean }) {
+
+interface PenduloType {
+    id: string
+    children: React.ReactNode
+    darkMode?: boolean
+}
+
+export function Pendulo({ id, children, darkMode = false } : PenduloType) {
     const { state } = usePendulo(id)
     const sectionRef = useRef<HTMLDivElement | null>(null)
     const { offset } = usePosition({ sectionRef, state })
-
+    const finalTheme = darkMode ? penduloStyle.penduloWrapperDark : penduloStyle.penduloWrapper
     useToggleMenu({ state });
     
     return (
-        <section style={{
-            position: 'fixed',
-            top: state.position?.clientY - offset.height,
-            left: state.position?.clientX - offset.width,
-            background: darkMode ? '#27272a' : 'white',
-            boxShadow: '0px 0px 4px #f3f4f6',
-            padding: '8px 8px',
-            borderRadius: '6px',
-            border: darkMode ? '1px solid #09090b' : '1px solid #f3f4f6',
-        }} 
+        <section
+        className={finalTheme} 
+        style={{ top: state.position?.clientY - offset.height, left: state.position?.clientX - offset.width }} 
         ref={sectionRef} 
         hidden={!state.state}>
             {Children.map(children, (child: React.ReactNode) => {
