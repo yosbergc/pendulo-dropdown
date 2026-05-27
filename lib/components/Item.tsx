@@ -4,12 +4,16 @@ interface ItemType {
     text: string
     Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+    darkMode?: boolean
 }
-export function Item({ text, Icon, onClick } : ItemType) {
+export function Item({ text, Icon, onClick, darkMode = false } : ItemType) {
+    const finalStyles = darkMode ? styles.penduloItemComponentDarkTheme : styles.penduloItemComponent
     return (
-        <section className={styles.penduloItemComponent} onClick={onClick}>
+        <section className={finalStyles} onClick={onClick}>
             { Icon && <Icon width={14} height={14}/> }
-            <p>{text}</p>
+            <p style={darkMode ? {
+                color: '#e5e5e5'
+            } : {}}>{text}</p>
         </section>
     )
 }
