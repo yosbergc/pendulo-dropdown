@@ -8,8 +8,8 @@ function App() {
   const { show, hideAll } = useMenu()
   return (
     <>
-      <Pendulo id='menu'>
-        <Item text="View profile" Icon={UserRound} />
+      <Pendulo id='menu' darkMode>
+        <Item text="View profile" Icon={UserRound} disabled={() => true}/>
         <Item text="Settings" Icon={Settings}/>
         <Item text="Subscription" Icon={Podcast}/>
         <Separator />
