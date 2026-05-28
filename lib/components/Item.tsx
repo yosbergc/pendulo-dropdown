@@ -5,15 +5,17 @@ interface ItemType {
     Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     darkMode?: boolean
-    disabled?: () => boolean
+    disabled?: boolean
+    hidden?: boolean
 }
-export function Item({ text, Icon, onClick, darkMode = false, disabled = () => false } : ItemType) {
+export function Item({ text, Icon, onClick, darkMode = false, disabled = false, hidden = false } : ItemType) {
+    if (hidden) return;
     const finalStyles = darkMode ? styles.penduloItemComponentDarkTheme : styles.penduloItemComponent
     return (
         <button 
         className={finalStyles}
         onClick={onClick}
-        disabled={disabled()}>
+        disabled={disabled}>
             { Icon && <Icon width={14} height={14}/> }
             <p>{text}</p>
         </button>
