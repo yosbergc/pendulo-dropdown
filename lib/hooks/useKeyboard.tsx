@@ -4,15 +4,16 @@ import { useMenu } from "./useMenu";
 
 export function useKeyboard({ state } : { state: HandlerInfo }) {
     const { hideAll } = useMenu()
-
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
             if (event.code === 'Escape') {
                 hideAll()
-            }
 
-            
-        }
+                return '';
+            }
+    }
+    
+    useEffect(() => {
+        
         if (state.state) {
             window.addEventListener('keydown', handleKeyDown)
         } else {

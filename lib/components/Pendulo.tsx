@@ -19,6 +19,7 @@ interface PenduloType {
 export function Pendulo({ id, children, darkMode = false } : PenduloType) {
     const { state } = usePendulo(id)
     const sectionRef = useRef<HTMLDivElement | null>(null)
+    
     const { offset } = usePosition({ sectionRef, state })
     const finalTheme = darkMode ? penduloStyle.penduloWrapperDark : penduloStyle.penduloWrapper
     useToggleMenu({ state });
