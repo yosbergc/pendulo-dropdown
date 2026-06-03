@@ -2,6 +2,7 @@ import React, { cloneElement, Children, useRef } from "react";
 import { usePendulo } from "../hooks/usePendulo";
 import { usePosition } from "../hooks/usePosition";
 import { useToggleMenu } from "../hooks/useToggleMenu";
+import { useKeyboard } from "../hooks/useKeyboard";
 import penduloStyle from './Pendulo.module.css'
 
 interface ChildProps {
@@ -21,6 +22,7 @@ export function Pendulo({ id, children, darkMode = false } : PenduloType) {
     const { offset } = usePosition({ sectionRef, state })
     const finalTheme = darkMode ? penduloStyle.penduloWrapperDark : penduloStyle.penduloWrapper
     useToggleMenu({ state });
+    useKeyboard({ state })
     
     return (
         <section
