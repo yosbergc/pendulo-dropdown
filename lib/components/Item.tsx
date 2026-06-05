@@ -7,14 +7,17 @@ interface ItemType {
     darkMode?: boolean
     disabled?: boolean
     hidden?: boolean
-    closeOnCLick?: boolean
+    closeOnCLick?: boolean,
+    isCurrentSelected: boolean
 }
-export function Item({ text, Icon, onClick, darkMode = false, disabled = false, hidden = false, closeOnCLick = true } : ItemType) {
+export function Item({ text, Icon, onClick, darkMode = false, disabled = false, hidden = false, closeOnCLick = true, isCurrentSelected } : ItemType) {
     if (hidden) return;
-    const finalStyles = darkMode ? styles.penduloItemComponentDarkTheme : styles.penduloItemComponent
+    
+    const normalMode = isCurrentSelected ? styles.penduloItemComponentSelected : styles.penduloItemComponent
+    const finalStyle = darkMode ? isCurrentSelected ? styles.penduloItemComponentSelectedDarkTheme : styles.penduloItemComponentDarkTheme : normalMode
     return (
         <button 
-        className={finalStyles}
+        className={finalStyle}
         onClick={(event: React.MouseEvent<HTMLElement>) => {
             if (!closeOnCLick) {
                 event.stopPropagation()

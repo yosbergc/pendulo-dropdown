@@ -19,11 +19,11 @@ interface PenduloType {
 export function Pendulo({ id, children, darkMode = false } : PenduloType) {
     const { state } = usePendulo(id)
     const sectionRef = useRef<HTMLDivElement | null>(null)
-    
     const { offset } = usePosition({ sectionRef, state })
+    const { currentItem } = useKeyboard({ state })
     const finalTheme = darkMode ? penduloStyle.penduloWrapperDark : penduloStyle.penduloWrapper
+    
     useToggleMenu({ state });
-    useKeyboard({ state })
     
     return (
         <section
@@ -31,9 +31,9 @@ export function Pendulo({ id, children, darkMode = false } : PenduloType) {
         style={{ top: state.position?.clientY - offset.height, left: state.position?.clientX - offset.width }} 
         ref={sectionRef} 
         hidden={!state.state}>
-            {Children.map(children, (child: React.ReactNode) => {
+            {Children.map(children, (child: React.ReactNode, index: number) => {
                 if (React.isValidElement<ChildProps>(child)) {
-                    return cloneElement(child, { darkMode: darkMode })
+                    return cloneElement(child, { darkMode: darkMode, isCurrentSelected: index === currentItem })
                 }
             })}
         </section>
