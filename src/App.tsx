@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Pendulo id='menu' darkMode>
-        <Item text="View profile" Icon={UserRound} />
+        <Item text="View profile" Icon={UserRound} hidden/>
         <Item text="Settings" Icon={Settings}/>
         <Item text="Subscription" Icon={Podcast}/>
         <Separator />
