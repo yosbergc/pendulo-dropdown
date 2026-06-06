@@ -14,13 +14,15 @@ export function useKeyboard({ state } : { state: HandlerInfo }) {
 
             if (event.code === 'ArrowDown') {
                 setCurrentItem(previousItem => previousItem + 1)
+                console.log('DOWN')
             }
 
             if (event.code === 'ArrowUp') {
                 setCurrentItem(previousItem => previousItem - 1)
+                console.log('UP')
             }
             
-    }, [])
+    }, [hideAll])
     
     useEffect(() => {
         if (state.state) {
