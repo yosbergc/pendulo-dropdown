@@ -6,12 +6,19 @@ import { useKeyboard } from "../hooks/useKeyboard";
 import { ItemsRender } from "./ItemsRender";
 import { isItem, isHidden } from '../lib/helpers';
 import penduloStyle from './Pendulo.module.css'
-
+import { useMenu } from "../main";
 interface PenduloType {
     id: string
     children: React.ReactNode
     darkMode?: boolean
 }
+
+interface ClickableElement extends React.ReactElement {
+  props: {
+    onClick: () => void;
+  };
+}
+
 
 export function Pendulo({ id, children, darkMode = false } : PenduloType) {
     const { state } = usePendulo(id)
@@ -25,8 +32,27 @@ export function Pendulo({ id, children, darkMode = false } : PenduloType) {
             return index
         }
     }).filter(child => child !== undefined)
-    const { currentItem } = useKeyboard({ state, itemsIndex })
     
+    const { hideAll } = useMenu()
+    const { currentItem } = useKeyboard({ state, itemsIndex, onEnter })
+
+    function itemHasOnClick(item: React.ReactNode): item is ClickableElement {
+        if (!React.isValidElement(item)) return false;
+        const props = (item as React.ReactElement).props as { onClick?: unknown };
+
+        return typeof props.onClick === 'function';
+    }
+
+    function onEnter() {
+        const item = arrayElements[currentItem]
+
+        if (itemHasOnClick(item)) {
+            item.props?.onClick()
+        }
+
+        hideAll()
+    }
+
     return <ItemsRender 
         currentItem={currentItem}
         darkMode={darkMode}
