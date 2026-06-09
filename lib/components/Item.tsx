@@ -1,15 +1,20 @@
 import styles from './Item.module.css'
+import { useKeyCombination } from '../hooks/useKeyCombination'
+import type { HandlerInfo } from '../hooks/observer';
 
 interface ItemType {
     text: string
     Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+    onClick?: (event?: React.MouseEvent<HTMLElement>) => void;
     darkMode?: boolean
     disabled?: boolean
     hidden?: boolean
     closeOnCLick?: boolean,
     isCurrentSelected?: boolean
+    onKeyMatch?: (event: KeyboardEvent) => boolean,
+    state?: HandlerInfo
 }
+
 export const Item = (
     { 
         text, 
@@ -19,13 +24,16 @@ export const Item = (
         disabled = false, 
         hidden = false, 
         closeOnCLick = true, 
-        isCurrentSelected } : 
+        isCurrentSelected,
+        onKeyMatch,
+        state } : 
         ItemType)  => {
-
+    
+    useKeyCombination({ hidden, disabled, onClick, onKeyMatch, state })
     if (hidden) return;
 
     const finalStyle = darkMode ? styles.penduloItemComponentDarkTheme : styles.penduloItemComponent
-
+    
     return (
         <button 
         className={`${finalStyle} ${isCurrentSelected ? darkMode ? styles.isSelectedItemDark : styles.isSelectedItem : ''}`}

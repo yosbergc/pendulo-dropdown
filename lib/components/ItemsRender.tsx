@@ -28,7 +28,7 @@ export function ItemsRender({ finalTheme, state, sectionRef, arrayElements, dark
             {
                 React.Children.map(arrayElements, (child, index) => {
                     if (React.isValidElement<ChildProps>(child)) {
-                        return cloneElement(child, { darkMode, isCurrentSelected: index === currentItem })
+                        return cloneElement(child, { darkMode, isCurrentSelected: index === currentItem, state })
                     }
                 })
             }

@@ -10,7 +10,9 @@ function App() {
     <>
       <Pendulo id='menu' darkMode>
         <Item text="View profile" Icon={UserRound} hidden/>
-        <Item text="Settings" Icon={Settings} onClick={() => console.log('Hello from settings')}/>
+        <Item text="Settings" Icon={Settings} onClick={() => console.log('Hello from settings')} onKeyMatch={(event) => {
+          return event.altKey && event.key === 'l';
+        }}/>
         <Item text="Subscription" Icon={Podcast}/>
         <Separator />
         <Item text="Log Out" Icon={LogOut}/>
