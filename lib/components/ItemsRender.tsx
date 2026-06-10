@@ -1,5 +1,4 @@
 import React, { cloneElement} from 'react'
-import type { HandlerInfo } from '../hooks/observer';
 
 interface ChildProps {
     darkMode?: boolean;

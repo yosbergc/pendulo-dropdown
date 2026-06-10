@@ -1,12 +1,4 @@
-export interface HandlerInfo {
-    state: boolean
-    position: {
-        clientX: number
-        clientY: number
-    }
-}
-
-type Handler <T = HandlerInfo> = (args: T) => void;
+import type { Handler, HandlerInfo } from "../types"
 
 class PenduloObserver {
     private dropdownList = new Map<string, Set<Handler>>()

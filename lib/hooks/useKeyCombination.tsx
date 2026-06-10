@@ -1,16 +1,8 @@
 import { useEffect, useCallback } from "react"
-import type { HandlerInfo } from "./observer";
 import { useMenu } from "./useMenu";
+import type { KeyCombinationHook } from "../types";
 
-function useKeyCombination({ hidden, disabled, onKeyMatch, onClick, state } : 
-    { 
-        hidden: boolean, 
-        onKeyMatch?: (event: KeyboardEvent) => boolean, 
-        disabled: boolean,
-        onClick?: (event?: React.MouseEvent<HTMLElement>) => void;
-        state?: HandlerInfo
-    }) {
-
+function useKeyCombination({ hidden, disabled, onKeyMatch, onClick, state } : KeyCombinationHook ) {
     const { hideAll } = useMenu()
     const handleKeyCombination = useCallback((event: KeyboardEvent) => {
         if (!onKeyMatch || !onClick) return;
