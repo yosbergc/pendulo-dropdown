@@ -1,0 +1,13 @@
+.separatorStyle {
+    border: none;
+    border-radius: 6px;
+    height: 2px;
+}
+
+.separatorStyleWhite {
+    background-color: #e5e7eb;
+}
+
+.separatorStyleBlack {
+    background-color: #3f3f46;
+}

@@ -28,3 +28,37 @@ export interface KeyCombinationHook {
 }
 
 export type Handler <T = HandlerInfo> = (args: T) => void;
+
+export interface ChildProps {
+    darkMode?: boolean;
+    [key: string]: unknown;
+}
+
+export interface ItemsRenderProps {
+    finalTheme: string,
+    state: HandlerInfo,
+    sectionRef: React.RefObject<HTMLDivElement | null>,
+    darkMode: boolean,
+    offset: {
+        width: number,
+        height: number
+    },
+    currentItem: number,
+    arrayElements?: React.ReactNode[]
+}
+
+export interface PenduloType {
+    id: string
+    children: React.ReactNode
+    darkMode?: boolean
+}
+
+export interface ClickableElement extends React.ReactElement {
+  props: {
+    onClick: () => void;
+  };
+}
+
+export interface SeparatorProps { 
+    darkMode?: boolean
+}

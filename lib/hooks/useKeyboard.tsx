@@ -1,8 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
-import type { HandlerInfo } from "./observer";
+import type { HandlerInfo } from "../types";
 import { useMenu } from "./useMenu";
+import { onEnter } from "../lib/helpers";
 
-export function useKeyboard({ state, itemsIndex, onEnter } : { state: HandlerInfo, itemsIndex: number[], onEnter: () => void }) {
+export function useKeyboard({ state, itemsIndex, arrayElements } : { state: HandlerInfo, itemsIndex: number[], arrayElements: React.ReactNode[] }) {
     const { hideAll } = useMenu()
     const [currentItem, setCurrentItem] = useState(-1)
 
@@ -39,10 +40,10 @@ export function useKeyboard({ state, itemsIndex, onEnter } : { state: HandlerInf
             if (event.code === 'Enter' && currentItem !== -1) {
                 event.preventDefault()
 
-                onEnter()
+                onEnter(hideAll, arrayElements, currentItem)
             }
             
-    }, [hideAll, itemsIndex, currentItem, onEnter])
+    }, [hideAll, itemsIndex, currentItem, arrayElements])
 
     useEffect(() => {
         if (!state.state) {

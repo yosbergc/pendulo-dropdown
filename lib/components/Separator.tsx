@@ -1,10 +1,9 @@
-export function Separator({ darkMode = false } : { darkMode?: boolean}) {
+import type { SeparatorProps } from "../types"
+import styles from './Separator.module.css'
+
+export function Separator({ darkMode = false }: SeparatorProps ) {
     return (
-        <hr style={{
-            border: 'none',
-            borderRadius: '6px',
-            height: '2px',
-            backgroundColor: darkMode ? '#3f3f46' : '#e5e7eb'
-        }}></hr>
+        <hr className={`${styles.separatorStyle} ${darkMode ? styles.separatorStyleBlack : styles.separatorStyleWhite}`}></hr>
     )
 }
+
