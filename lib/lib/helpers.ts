@@ -44,3 +44,13 @@ export function useItems(children: React.ReactNode) {
 
     return { arrayElements, itemsIndex }
 }
+
+export function handleOnClick(event: React.MouseEvent<HTMLElement>, closeOnCLick: boolean, onClick: ((event?: React.MouseEvent<HTMLElement, MouseEvent> | undefined) => void) | undefined) {
+    if (!closeOnCLick) {
+        event.stopPropagation()
+    }
+
+    if (onClick) {
+        onClick(event)
+    }
+}
