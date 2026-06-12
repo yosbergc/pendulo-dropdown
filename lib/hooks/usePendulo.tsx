@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { penduloObserverInstance } from './observer'
 import { RESERVED } from "../static/static";
-import type { HandlerInfo } from "./observer";
+import type { HandlerInfo } from "../types";
 
 export function usePendulo(id: string) {
     const [state, setState] = useState<HandlerInfo>({

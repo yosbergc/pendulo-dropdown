@@ -62,3 +62,14 @@ export interface ClickableElement extends React.ReactElement {
 export interface SeparatorProps { 
     darkMode?: boolean
 }
+
+export interface useKeyboardProps { 
+    state: HandlerInfo, 
+    itemsIndex: number[], 
+    arrayElements: React.ReactNode[] 
+}
+
+export interface usePositionProps { 
+    sectionRef: React.RefObject<HTMLDivElement | null>
+    state: HandlerInfo 
+}

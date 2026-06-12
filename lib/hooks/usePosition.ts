@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect, useEffect } from "react"
-import type { HandlerInfo } from "./observer";
+import type { usePositionProps } from "../types"
 
-export function usePosition({ sectionRef, state } : { sectionRef: React.RefObject<HTMLDivElement | null>, state: HandlerInfo }) {
+export function usePosition({ sectionRef, state } : usePositionProps) {
     const [screen, setScreen] = useState({
         width: window.innerWidth,
         height: window.innerHeight

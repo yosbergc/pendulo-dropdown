@@ -1,9 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
-import type { HandlerInfo } from "../types";
+import type { useKeyboardProps } from "../types";
 import { useMenu } from "./useMenu";
 import { onEnter } from "../lib/helpers";
 
-export function useKeyboard({ state, itemsIndex, arrayElements } : { state: HandlerInfo, itemsIndex: number[], arrayElements: React.ReactNode[] }) {
+export function useKeyboard({ 
+    state, 
+    itemsIndex, 
+    arrayElements 
+    } : useKeyboardProps) {
     const { hideAll } = useMenu()
     const [currentItem, setCurrentItem] = useState(-1)
 
@@ -64,5 +68,5 @@ export function useKeyboard({ state, itemsIndex, arrayElements } : { state: Hand
         }
     }, [state, hideAll, handleKeyDown])
 
-    return { currentItem }
+    return { currentItem, setCurrentItem }
 }

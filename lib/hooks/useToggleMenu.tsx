@@ -1,5 +1,5 @@
 import { useMenu } from "./useMenu";
-import type { HandlerInfo } from "./observer";
+import type { HandlerInfo } from "../types";
 import { useEffect } from "react";
 
 export function useToggleMenu({ state } : { state: HandlerInfo }) {
