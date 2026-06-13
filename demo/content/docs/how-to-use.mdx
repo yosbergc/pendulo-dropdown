@@ -1,0 +1,41 @@
+---
+title: How To Use
+description: A quick guide about how to implement Pendulo Dropdown in your project.
+---
+
+You will need to define first the Dropdown menu, giving it a unique ID that you cant define again in the whole project. To create one you need to use the Pendulo component you can define it directly in the component/page you are going to use it or just create a component that return the menu so you can use it multiple times.
+
+```tsx
+import { Pendulo, Item } from 'pendulo-dropdown'
+
+// Let's create a component that will be the Menu we are going to re-use on every page we want it to appear.
+
+export function UserMenu() {
+    return (
+        <Pendulo id="userMenu">
+            
+        </Pendulo>
+    )
+}
+```
+
+// Now we have the "container" that will be rendered once user interact with our context menu, we will need to use the Item component, where we can add the options they can select from.
+
+```tsx
+import { Pendulo, Item } from 'pendulo-dropdown'
+import { useRouter } from "next/navigation";
+// 
+
+export function UserMenu() {
+    const router = useRouter();
+
+    return (
+        <Pendulo id="userMenu">
+            <Item text="Profile" onClick={() => router.push("/profile")}/>
+            <Item text="Twitter" onClick={() => window.location.href = "https://x.com/"}/>
+            <Item text="Log Out" onClick={() => console.log('Logout logic')}/>
+        </Pendulo>
+    )
+}
+```
+
