@@ -1,0 +1,25 @@
+---
+title: Separator
+description: Separator component.
+---
+
+It's a simple component you can use to "separate" or to add a line to your dropdown/context menu. It doesn't have any prop, and it will automatically detect if dropdown/context menu is light/dark theme.
+
+```tsx
+import { Pendulo, Item, Separator } from 'pendulo-dropdown'
+import { useRouter } from "next/navigation";
+// 
+
+export function UserMenu() {
+    const router = useRouter();
+
+    return (
+        <Pendulo id="userMenu">
+            <Item text="Profile" onClick={() => router.push("/profile")}/>
+            <Item text="Twitter" onClick={() => window.location.href = "https://x.com/"}/>
+            <Separator />
+            <Item text="Log Out" onClick={() => console.log('Logout logic')}/>
+        </Pendulo>
+    )
+}
+```

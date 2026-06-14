@@ -1,0 +1,11 @@
+---
+title: useMenu
+description: Custom hook you will use to show your context/dropdown menu.
+---
+
+useMenu is the hook that will handle the logic to show or hide your context menu. It will give you two methods that you can use whenever you want. 
+
+| Property      | Description                                                           | Accepted Type
+| ----------    | --------                                                              | --------
+| show    | Its a function that will receive two params, the ID (string) you assigned to your context menu and the event. You can use it with events like  `onContextMenu` \| `onClick` \| `onDoubleClick` | `({ id: string, event: EventType }) => void` |
+| hideAll    | Function that you will use to hide all the current context/dropdown menu being shown. | `() => void` |
