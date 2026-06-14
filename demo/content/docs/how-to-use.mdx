@@ -46,14 +46,12 @@ import { useMenu } from "pendulo-dropdown";
 import { UserMenu } from '@/components/UserMenu'
 
 export default function Page() {
-
+    const { show } = useMenu()
     return (
-        <Pendulo id="userMenu">
-            <Item text="Profile" onClick={() => router.push("/profile")}/>
-            <Item text="Twitter" onClick={() => window.location.href = "https://x.com/"}/>
-            <Item text="Log Out" onClick={() => console.log('Logout logic')}/>
-        </Pendulo>
+        <main>
+            <button onClick={(event: React.MouseEvent) => show({ id: 'userMenu', event })}>Click me to render the context menu</button>
+            <UserMenu />
+        </main>
     )
 }
 ```
-
