@@ -39,3 +39,21 @@ export function UserMenu() {
 }
 ```
 
+So now you will say ok, we did the Menu, how am i going to show it to user? Well we got the component that will use the dropdown, once you want to use it you can do it this way.
+
+```tsx
+import { useMenu } from "pendulo-dropdown";
+import { UserMenu } from '@/components/UserMenu'
+
+export default function Page() {
+
+    return (
+        <Pendulo id="userMenu">
+            <Item text="Profile" onClick={() => router.push("/profile")}/>
+            <Item text="Twitter" onClick={() => window.location.href = "https://x.com/"}/>
+            <Item text="Log Out" onClick={() => console.log('Logout logic')}/>
+        </Pendulo>
+    )
+}
+```
+
