@@ -8,8 +8,7 @@
   "bugs": {
     "url": "https://github.com/yosbergc/pendulo-dropdown/issues"
   },
-  "version": "1.0.0",
-  "private": false,
+  "license": "MIT",
   "keywords": [
     "react",
     "reactjs",
@@ -18,10 +17,20 @@
     "popup",
     "context-menu-react"
   ],
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
-  "license": "MIT",
+  "main": "./dist/pendulo-dropdown.js",
+  "module": "./dist/pendulo-dropdown.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/pendulo-dropdown.js",
+      "default": "./dist/pendulo-dropdown.js"
+    },
+    "./styles.css": "./dist/pendulo-dropdown.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.lib.json && vite build",

@@ -4,9 +4,10 @@ import type { usePositionProps } from "../types"
 
 export function usePosition({ sectionRef, state } : usePositionProps) {
     const [screen, setScreen] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight
+        width: 0,
+        height: 0
     })
+    
     const [offset, setOffset] = useState({
         width: 0,
         height: 0
@@ -40,9 +41,11 @@ export function usePosition({ sectionRef, state } : usePositionProps) {
         }
 
         window.addEventListener('resize', handleNewScreenSize)
-
+        window.addEventListener('load', handleNewScreenSize)
+        
         return () => {
             window.removeEventListener('resize', handleNewScreenSize)
+            window.removeEventListener('load', handleNewScreenSize)
         }
     }, [])
     return { offset }
