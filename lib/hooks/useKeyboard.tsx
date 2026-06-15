@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState, useCallback } from "react";
 import type { useKeyboardProps } from "../types";
 import { useMenu } from "./useMenu";

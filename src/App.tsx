@@ -5,7 +5,7 @@ import { useMenu } from '../lib/hooks/useMenu'
 import { UserRound, Settings, Podcast, LogOut } from 'lucide-react'
 
 function App() {
-  const { show, hideAll } = useMenu()
+  const { show } = useMenu()
   return (
     <>
       <Pendulo id='menu' darkMode>
@@ -18,8 +18,17 @@ function App() {
         <Item text="Log Out" Icon={LogOut}/>
       </Pendulo>
       <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <button onClick={(event: React.MouseEvent) => show({ id: 'menu', event })}>Probar boton de mostrar</button>
-        <button onClick={hideAll}>Eliminar menu</button>
+        <button onClick={(event: React.MouseEvent) => show({ id: 'menu', event })} style={{
+          backgroundColor: '#f0f0f0',
+          color: '#333',
+          padding: '10px 20px',
+          border: '1px solid #dcdcdc',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '16px',
+          fontWeight: '500',
+          transition: 'all 0.2s ease'
+        }}>Test button</button>
       </section>
     </>
   )

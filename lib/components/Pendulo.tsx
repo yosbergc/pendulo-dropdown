@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from "react";
 import { usePendulo } from "../hooks/usePendulo";
 import { usePosition } from "../hooks/usePosition";

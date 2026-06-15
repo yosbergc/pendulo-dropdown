@@ -1,3 +1,5 @@
+'use client'
+
 import { useMenu } from "./useMenu";
 import type { HandlerInfo } from "../types";
 import { useEffect } from "react";

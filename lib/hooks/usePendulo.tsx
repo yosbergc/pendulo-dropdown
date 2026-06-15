@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react";
 import { penduloObserverInstance } from './observer'
 import { RESERVED } from "../static/static";

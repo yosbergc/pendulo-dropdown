@@ -1,3 +1,4 @@
+'use client'
 import { useState, useLayoutEffect, useEffect } from "react"
 import type { usePositionProps } from "../types"
 

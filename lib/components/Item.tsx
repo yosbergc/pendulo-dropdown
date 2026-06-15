@@ -1,3 +1,4 @@
+'use client'
 import styles from './Item.module.css'
 import { useKeyCombination } from '../hooks/useKeyCombination'
 import { handleOnClick } from '../lib/helpers'
