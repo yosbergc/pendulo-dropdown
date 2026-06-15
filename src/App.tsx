@@ -1,7 +1,5 @@
-import { Pendulo } from '../lib/components/Pendulo'
-import { Item } from '../lib/components/Item'
-import { Separator } from '../lib/components/Separator'
-import { useMenu } from '../lib/hooks/useMenu'
+import { Pendulo, useMenu, Item, Separator } from 'pendulo-dropdown'
+import 'pendulo-dropdown/styles.css'
 import { UserRound, Settings, Podcast, LogOut } from 'lucide-react'
 
 function App() {

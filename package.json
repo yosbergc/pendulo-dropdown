@@ -29,7 +29,8 @@
       "import": "./dist/pendulo-dropdown.js",
       "default": "./dist/pendulo-dropdown.js"
     },
-    "./styles.css": "./dist/pendulo-dropdown.css"
+    "./styles.css": "./dist/pendulo-dropdown.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "dev": "vite",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@microsoft/api-extractor": "^7.58.7",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -52,16 +54,18 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "lucide-react": "^1.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12",
-    "@microsoft/api-extractor": "^7.58.7",
-    "lucide-react": "^1.3.0",
-    "unplugin-dts": "^1.0.0"
+    "unplugin-dts": "^1.0.0",
+    "vite": "^8.0.12"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "pendulo-dropdown": "file:pendulo-dropdown-1.0.0.tgz"
+  }
 }
