@@ -3,10 +3,11 @@ title: How To Use
 description: A quick guide about how to implement Pendulo Dropdown in your project.
 ---
 
-You will need to define first the Dropdown menu, giving it a unique ID that you cant define again in the whole project. To create one you need to use the Pendulo component you can define it directly in the component/page you are going to use it or just create a component that return the menu so you can use it multiple times.
+You will need to define first the Dropdown menu, giving it a unique ID that you cant define again in the whole project. To create one you need to use the Pendulo component you can define it directly in the component/page you are going to use it or just create a component that return the menu so you can use it multiple times. Also you will need to import the styles for the project.
 
 ```tsx
 import { Pendulo, Item } from 'pendulo-dropdown'
+import 'pendulo-dropdown/styles.css'
 
 // Let's create a component that will be the Menu we are going to re-use on every page we want it to appear.
 
