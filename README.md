@@ -6,6 +6,7 @@ Sometimes we just want to add a custom context menu to our projects, but then we
 
 ## Documentation
 [Documentation](https://pendulo-dropdown.vercel.app/)
+[NPM Link](https://www.npmjs.com/package/pendulo-dropdown)
 
 ## Features
 
